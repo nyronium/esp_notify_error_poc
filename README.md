@@ -9,15 +9,15 @@ Quick successive calls to gatt notify will crash the system.
 
 1. Simply build the project like any other esp project. It requires the new xtensa compiler as it uses modern c++ (with gcc-8).
 
-```bash
-$IDF_PATH/tools/idf.py build
-$IDF_PATH/tools/idf.py monitor
-```
+   ```bash
+   $IDF_PATH/tools/idf.py build
+   $IDF_PATH/tools/idf.py monitor
+   ```
 
 2. After starting the monitor you must connect to the device with any BLE capable device.
 3. Observe that you will see following line before the crash:
 
-	E (882) NimBLE: Controller not ready to receive packets from host at this time, try again after sometime
+   ```E (882) NimBLE: Controller not ready to receive packets from host at this time, try again after sometime```
 
 A logger in the esp nimble stack greatly reduces the amount of crashes occurring (just takes some seconds instead of immediately).
 By the way: Why is there a logger by default? This increases latency A LOT!
